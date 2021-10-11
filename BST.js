@@ -38,6 +38,28 @@ class BST{
             return this.get(node.right, data);
         }
     }
+
+    lowestCommonAncestor(currentNode, valOne, valTwo) {
+        if(currentNode == null){
+            return null;
+        }
+        if(currentNode.value == valOne || currentNode.value == valTwo){
+            return currentNode;
+        }
+        let leftNode = this.lowestCommonAncestor(currentNode.left, valOne, valTwo)
+        let rightNode = this.lowestCommonAncestor(currentNode.right, valOne, valTwo)
+
+        if(leftNode != null && rightNode != null){
+            return currentNode;
+        }
+
+        if(leftNode == null){
+            return rightNode;
+        } else {
+            return leftNode;
+        }
+
+    }
 }
 
 class Node {
