@@ -2,15 +2,11 @@ class BST{
     constructor() {
         this.root = null;
     }
-    
-    constructor(root) {
-        this.root = root;
-    }
 
     put(currentNode, newNode) {
         if(this.root == null) {
             this.root = node;
-            
+
         } else {
             if(currentNode.value < newNode.value) {
                 if(currentNode.left == null) {
@@ -29,6 +25,19 @@ class BST{
 
     }
 
+    get(node, data) {
+        if(node == null){
+            return null;
+        }
+        if(data == node.value) {
+            return node;
+        }
+        if(data < node.data){
+            return this.get(node.left, data);
+        } else {
+            return this.get(node.right, data);
+        }
+    }
 }
 
 class Node {
