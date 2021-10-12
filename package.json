@@ -1,0 +1,22 @@
+{
+  "name": "lcajs",
+  "version": "1.0.0",
+  "description": "Lowest common ancestor algorithm on BST in javascript",
+  "main": "BST.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ConnBreathnach/LCAJS.git"
+  },
+  "author": "Conn Breathnach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConnBreathnach/LCAJS/issues"
+  },
+  "homepage": "https://github.com/ConnBreathnach/LCAJS#readme",
+  "dependencies": {
+    "jest": "^27.2.5"
+  }
+}
