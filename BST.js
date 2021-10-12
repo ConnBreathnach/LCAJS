@@ -1,11 +1,23 @@
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
 class BST{
     constructor() {
         this.root = null;
     }
 
+    contains(node) {
+        return this.get(this.root, node) != null;
+    }
+
     put(currentNode, newNode) {
         if(this.root == null) {
-            this.root = node;
+            this.root = newNode;
 
         } else {
             if(currentNode.value < newNode.value) {
@@ -62,10 +74,5 @@ class BST{
     }
 }
 
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
-    }
-}
+
+module.exports = BST
