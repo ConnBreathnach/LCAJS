@@ -15,22 +15,25 @@ class BST{
         return this.get(this.root, node) != null;
     }
 
-    put(currentNode, newNode) {
+    put(currentNode, newNodeVal) {
         if(this.root == null) {
+            let newNode = new Node(newNodeVal);
             this.root = newNode;
 
         } else {
-            if(currentNode.value < newNode.value) {
+            if(currentNode.value < newNodeVal) {
                 if(currentNode.left == null) {
+                    let newNode = new Node(newNodeVal);
                     currentNode.left = newNode;
                 } else {
-                    this.put(currentNode.left, newNode);
+                    this.put(currentNode.left, newNodeVal);
                 }
             } else {
                 if(currentNode.right == null) {
+                    let newNode = new Node(newNodeVal);
                     currentNode.right = newNode;
                 } else {
-                    this.put(currentNode.right, newNode);
+                    this.put(currentNode.right, newNodeVal);
                 }
             }
         }

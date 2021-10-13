@@ -7,12 +7,12 @@ test('Testing contains on empty tree', () => {
 
 test('Testing contains for true', () => {
     let tree = new BST();
-    tree.put(2);
+    tree.put(tree.root,2);
     expect(tree.contains(2)).toBe(true);
 });
 
 test('Testing contains for true', () => {
     let tree = new BST();
-    tree.put(2);
+    tree.put(tree.root,2);
     expect(tree.contains(3)).toBe(false);
 });
