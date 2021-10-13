@@ -44,14 +44,11 @@ class BST{
         if(node == null){
             return null;
         }
-        if(data == node.value) {
-            return node;
-        }
-        if(data < node.data){
-            return this.get(node.left, data);
-        } else {
+        if(data < node.value){
             return this.get(node.right, data);
-        }
+        } else if (data > node.value) {
+            return this.get(node.left, data);
+        } else return node.value;
     }
 
     lowestCommonAncestor(currentNode, valOne, valTwo) {
@@ -59,19 +56,19 @@ class BST{
             return null;
         }
         if(currentNode.value == valOne || currentNode.value == valTwo){
-            return currentNode;
+            return currentNode.value;
         }
         let leftNode = this.lowestCommonAncestor(currentNode.left, valOne, valTwo)
         let rightNode = this.lowestCommonAncestor(currentNode.right, valOne, valTwo)
 
         if(leftNode != null && rightNode != null){
-            return currentNode;
+            return currentNode.value;
         }
 
         if(leftNode == null){
-            return rightNode;
+            return rightNode.value;
         } else {
-            return leftNode;
+            return leftNode.value;
         }
 
     }

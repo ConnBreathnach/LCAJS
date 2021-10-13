@@ -16,3 +16,33 @@ test('Testing contains for true', () => {
     tree.put(tree.root,2);
     expect(tree.contains(3)).toBe(false);
 });
+
+test('Testing put and get for large tree', () => {
+   let tree = new BST();
+   tree.put(tree.root, 2);
+   tree.put(tree.root, 1);
+   tree.put(tree.root, 3);
+   tree.put(tree.root, 4);
+   tree.put(tree.root, 0);
+   expect(tree.get(tree.root,0)).toBe(0);
+   expect(tree.get(tree.root,1)).toBe(1);
+   expect(tree.get(tree.root,2)).toBe(2);
+   expect(tree.get(tree.root,3)).toBe(3);
+   expect(tree.get(tree.root,4)).toBe(4);
+
+});
+test('Testing LCA on null tree', () => {
+    let tree = new BST();
+    expect(tree.lowestCommonAncestor(this.root, 1, 2)).toBe(null);
+});
+let tree = new BST();
+tree.put(tree.root, 2);
+tree.put(tree.root, 1);
+tree.put(tree.root, 3);
+tree.put(tree.root, 4);
+tree.put(tree.root, 0);
+test('Testing Lowest Common Ancestor on large tree', ()=> {
+    expect(tree.lowestCommonAncestor(tree.root, 1, 2)).toBe(2);
+    expect(tree.lowestCommonAncestor(tree.root, 0, 4)).toBe(2);
+    expect(tree.lowestCommonAncestor(tree.root, 1, 2)).toBe(2);
+});
