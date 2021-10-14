@@ -21,14 +21,14 @@ class BST{
             this.root = newNode;
 
         } else {
-            if(currentNode.value < newNodeVal) {
+            if(currentNode.value > newNodeVal) {
                 if(currentNode.left == null) {
                     let newNode = new Node(newNodeVal);
                     currentNode.left = newNode;
                 } else {
                     this.put(currentNode.left, newNodeVal);
                 }
-            } else {
+            } else if (currentNode.value < newNodeVal){
                 if(currentNode.right == null) {
                     let newNode = new Node(newNodeVal);
                     currentNode.right = newNode;
@@ -44,9 +44,9 @@ class BST{
         if(node == null){
             return null;
         }
-        if(data < node.value){
+        if(data > node.value){
             return this.get(node.right, data);
-        } else if (data > node.value) {
+        } else if (data < node.value) {
             return this.get(node.left, data);
         } else return node.value;
     }
@@ -56,21 +56,16 @@ class BST{
             return null;
         }
         if(currentNode.value == valOne || currentNode.value == valTwo){
-            return currentNode.value;
+            return currentNode;
         }
         let leftNode = this.lowestCommonAncestor(currentNode.left, valOne, valTwo)
         let rightNode = this.lowestCommonAncestor(currentNode.right, valOne, valTwo)
 
-        if(leftNode != null && rightNode != null){
-            return currentNode.value;
+        if(typeof(leftNode) == Node && typeof(rightNode) == Nodel){
+            return currentNode;
         }
 
-        if(leftNode == null){
-            return rightNode.value;
-        } else {
-            return leftNode.value;
-        }
-
+        return (typeof(leftNode) == Node ? leftNode : rightNode);
     }
 }
 
